@@ -63,11 +63,12 @@ VALUES	("Content 1", 1, 1),
         ("Content 5", 5, 0);
 
 INSERT INTO Exam(`Code`, Title, CategoryID, Duration, CreatorID, CreateDate)
-VALUES	("Content 1", 1, 1),
-		("Content 2", 2, 0),
-        ("Content 3", 3, 1),
-        ("Content 4", 4, 1),
-        ("Content 5", 5, 0);
+VALUES	("1", "Tiêu đề 1", 1, 45, 2, "2021-11-7"),
+		("2", "Tiêu đề 2", 3, 45, 3, "2021-11-7"),
+        ("3", "Tiêu đề 3", 2, 45, 1, "2021-11-7"),
+        ("4", "Tiêu đề 4", 5, 45, 5, "2021-11-7"),
+        ("5", "Tiêu đề 5", 4, 45, 4, "2021-11-7");
+		
 
 INSERT INTO ExamQuestion(QuestionID)
 VALUES	(5),
