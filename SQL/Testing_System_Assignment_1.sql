@@ -36,7 +36,8 @@ CREATE TABLE GroupAccount(
 	GroupID 			TINYINT UNSIGNED  NOT NULL,
     AccountID 			INT UNSIGNED  NOT NULL,
     JoinDate 			DATE,
-    FOREIGN KEY (AccountID) REFERENCES `Account`(AccountID)
+    FOREIGN KEY (AccountID) REFERENCES `Account`(AccountID),
+    FOREIGN KEY (GroupID) REFERENCES  `Group`(GroupID)
 );
 
 CREATE TABLE TypeQuestion(
