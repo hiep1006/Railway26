@@ -33,7 +33,7 @@ CREATE TABLE `Group`(
 );
 
 CREATE TABLE GroupAccount(
-	GroupID 			TINYINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	GroupID 			TINYINT UNSIGNED,
     AccountID 			INT UNSIGNED,
     JoinDate 			DATE,
     FOREIGN KEY (AccountID) REFERENCES `Account`(AccountID)
