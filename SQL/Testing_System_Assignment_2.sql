@@ -1,29 +1,45 @@
 USE Testing_System_Assignment_1;
 INSERT INTO Department(DepartmentName)
-VALUES	("Phòng ban 1"),
-		("Phòng ban 2"),
-		("Phòng ban 3"),
-		("Phòng ban 4"),
-		("Phòng ban 5");
+VALUES	("Phòng kế toán"),
+		("Phòng Kiểm toán"),
+		("Phòng kinh doanh"),
+		("Phòng hành chính"),
+		("Phòng nhân sự"),
+        ("Phòng Chăm sóc Khách hàng"),
+        ("Phòng tài chính"),
+        ("Phòng nghiên cứu và phát triển"),
+        ("Phòng quản lý chất lượng");
 
 INSERT INTO `Position`(PositionName)
-VALUES	("Vị trí 1"),
-		("Vị trí 2"),
-		("Vị trí 3"),
-		("Vị trí 4"),
-		("Vị trí 5");
+VALUES	("Chủ tịch"),
+		("Hội đồng quản trị"),
+		("Giám đốc điều hành"),
+		("tổng giám đốc"),
+		("Giám đốc"),
+        ("Phó giám đốc"),
+        ("Trợ lý giám đốc"),
+        ("Cổ đông"),
+        ("Trưởng phòng"),
+        ("Phó phòng"),
+		("Quản lý"),
+        ("Trưởng nhóm"),
+        ("Nhân viên"),
+        ("Nhân viên tập sự");
+       
+        
+        
         
 INSERT INTO `Account`(Email, Username, FullName, DepartmentID, PositionID, CreateDate)
-VALUES	("email1@gmail.com" , "Username1", "FullName1", 1 , 1, "2021-11-7"),
-		("email2@gmail.com" , "Username2", "FullName2", 1 , 2, "2021-11-7"),
-		("email3@gmail.com" , "Username3", "FullName3", 3 , 4, "2021-11-7"),
-		("email4@gmail.com" , "Username4", "FullName4", 4 , 5, "2021-11-7"),
-		("email5@gmail.com" , "Username5", "FullName5", 5 , 1, "2021-11-7");
+VALUES	("email1@gmail.com" , "perkercrass", "Aria Mcfarland", 1 , 1, "2021-11-7"),
+		("email2@gmail.com" , "joecupid", "Maci Wyatt", 1 , 2, "2021-11-7"),
+		("email3@gmail.com" , "timberrytrace", "Megan Carneyyyyy", 3 , 4, "2021-11-7"),
+		("email4@gmail.com" , "jinkinsowner", "Harper Barron", 4 , 5, "2021-11-7"),
+		("email5@gmail.com" , "pipnag", "Isaiah Meyer", 3 , 1, "2021-11-7");
         
 INSERT INTO `Group`(GroupName, CreatorID, CreateDate)
-VALUES	("Tên nhóm 1" , "1", "2021-11-7"),
-		("Tên nhóm 2" , "2", "2021-11-7"),
-        ("Tên nhóm 3" , "3", "2021-11-7"),
+VALUES	("Tên nhóm 1" , "1", "2010-11-7"),
+		("Tên nhóm 2" , "2", "2015-11-7"),
+        ("Tên nhóm 3" , "3", "2020-11-7"),
         ("Tên nhóm 4" , "4", "2021-11-7"),
         ("Tên nhóm 5" , "5", "2021-11-7");
         
@@ -48,7 +64,7 @@ VALUES	("Tên danh mục 1"),
         ("Tên danh mục 4"),
         ("Tên danh mục 5");
         
-INSERT INTO Question(Content, CategoryID, TypeID, CreatorID, CreateDate)
+INSERT INTO Question(Content, CategoryID, TypeQuestionID, CreatorID, CreateDate)
 VALUES	("Content 1", 1, 2, 1, "2021-11-7"),
 		("Content 2", 1, 3, 2, "2021-11-7"),
         ("Content 3", 1, 4, 1, "2021-11-7"),
@@ -76,4 +92,6 @@ VALUES	(5),
         (3),
         (2),
         (1);
+        
+
 	

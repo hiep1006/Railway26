@@ -4,12 +4,12 @@ USE Testing_System_Assignment_1;
 
 CREATE TABLE Department(
 	DepartmentID 		TINYINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    DepartmentName 		VARCHAR(25) UNIQUE NOT NULL
+    DepartmentName 		VARCHAR(50) UNIQUE NOT NULL
 );
 
 CREATE TABLE `Position`(
 	PositionID 			TINYINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    PositionName 		VARCHAR(25) UNIQUE NOT NULL
+    PositionName 		VARCHAR(50) UNIQUE NOT NULL
 );
 
 CREATE TABLE `Account`(
@@ -55,8 +55,8 @@ CREATE TABLE Question(
     Content 			VARCHAR(50),
     CategoryID 			TINYINT UNSIGNED,
     FOREIGN KEY (CategoryID) REFERENCES CategoryQuestion(CategoryID),
-    TypeID 				TINYINT UNSIGNED,
-    FOREIGN KEY (TypeID) REFERENCES TypeQuestion(TypeID),
+    TypeQuestionID 				TINYINT UNSIGNED,
+    FOREIGN KEY (TypeQuestionID) REFERENCES TypeQuestion(TypeID),
     CreatorID 			INT UNSIGNED,
     FOREIGN KEY (CreatorID) REFERENCES `Account`(AccountID),
     CreateDate 			DATE
