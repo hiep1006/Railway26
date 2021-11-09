@@ -65,7 +65,7 @@ CREATE TABLE Question(
 CREATE TABLE Answer(
 	AnswerID TINYINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     Content VARCHAR(50)  NOT NULL,
-    QuestionID TINYINT UNSIGNED UNIQUE,
+    QuestionID TINYINT UNSIGNED,
     FOREIGN KEY (QuestionID) REFERENCES Question(QuestionID),
     isCorrect BOOL DEFAULT FALSE
 );
@@ -76,14 +76,15 @@ CREATE TABLE Exam(
     Title 				VARCHAR(50) UNIQUE NOT NULL,
     CategoryID 			TINYINT UNSIGNED UNIQUE,
     FOREIGN KEY (CategoryID) REFERENCES CategoryQuestion(CategoryID),
-    Duration 			TINYINT UNSIGNED  NOT NULL,
+    Duration 			INT  NOT NULL,
     CreatorID 			INT UNSIGNED,
     FOREIGN KEY (CreatorID) REFERENCES `Account`(AccountID),
     CreateDate 			DATE
 );
 
 CREATE TABLE ExamQuestion(
-	ExamID 				TINYINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	ExamID 				TINYINT UNSIGNED,
     QuestionID 			TINYINT UNSIGNED,
+    FOREIGN KEY (ExamID) REFERENCES Exam(ExamID),
     FOREIGN KEY (QuestionID) REFERENCES Question(QuestionID)
 );
