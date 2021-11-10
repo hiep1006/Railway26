@@ -34,7 +34,7 @@ CREATE TABLE `Group`(
 
 CREATE TABLE GroupAccount(
 	GroupID 			TINYINT UNSIGNED  NOT NULL,
-    AccountID 			INT UNSIGNED  NOT NULL,
+    AccountID 			INT UNSIGNED ,
     JoinDate 			DATE,
     FOREIGN KEY (AccountID) REFERENCES `Account`(AccountID),
     FOREIGN KEY (GroupID) REFERENCES  `Group`(GroupID)
@@ -64,17 +64,17 @@ CREATE TABLE Question(
 
 CREATE TABLE Answer(
 	AnswerID TINYINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    Content VARCHAR(50)  NOT NULL,
+    Content VARCHAR(50),
     QuestionID TINYINT UNSIGNED,
     FOREIGN KEY (QuestionID) REFERENCES Question(QuestionID),
-    isCorrect BOOL DEFAULT FALSE
+    isCorrect BOOL NOT NULL DEFAULT 0
 );
 
 CREATE TABLE Exam(
 	ExamID 				TINYINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     `Code` 				TINYINT UNSIGNED UNIQUE  NOT NULL,
     Title 				VARCHAR(50) UNIQUE NOT NULL,
-    CategoryID 			TINYINT UNSIGNED UNIQUE,
+    CategoryID 			TINYINT UNSIGNED,
     FOREIGN KEY (CategoryID) REFERENCES CategoryQuestion(CategoryID),
     Duration 			INT  NOT NULL,
     CreatorID 			INT UNSIGNED,
@@ -83,8 +83,8 @@ CREATE TABLE Exam(
 );
 
 CREATE TABLE ExamQuestion(
-	ExamID 				TINYINT UNSIGNED,
-    QuestionID 			TINYINT UNSIGNED,
+	ExamID 				TINYINT UNSIGNED NOT NULL,
+    QuestionID 			TINYINT UNSIGNED NOT NULL,
     FOREIGN KEY (ExamID) REFERENCES Exam(ExamID),
     FOREIGN KEY (QuestionID) REFERENCES Question(QuestionID)
 );
