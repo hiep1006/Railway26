@@ -85,3 +85,24 @@ JOIN `Group` ON GroupAccount.GroupID = `Group`.GroupID AND GroupAccount.AccountI
 SELECT Question.Content , Answer.Content
 FROM Answer
 JOIN Question ON Answer.QuestionID = Question.QuestionID AND Answer.Content IS NULL ;
+
+-- Exercise 2
+-- 17
+SELECT *
+FROM GroupAccount
+JOIN `Account` ON GroupAccount.AccountID = `Account`.AccountID AND GroupID = 1
+
+UNION
+SELECT *
+FROM GroupAccount
+JOIN `Account` ON GroupAccount.AccountID = `Account`.AccountID AND GroupID = 2;
+
+
+-- 18
+SELECT `Group`.GroupName
+FROM GroupAccount
+JOIN `Group` ON GroupAccount.GroupID = `Group`.GroupID AND AccountID > 5
+UNION ALL 
+SELECT `Group`.GroupName
+FROM GroupAccount
+JOIN `Group` ON GroupAccount.GroupID = `Group`.GroupID AND AccountID < 7;
