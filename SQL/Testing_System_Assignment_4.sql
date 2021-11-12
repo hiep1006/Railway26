@@ -22,11 +22,13 @@ WHERE `Account`.DepartmentID = Department.DepartmentID AND `Position`.PositionID
 GROUP BY DepartmentName HAVING count(AccountID) > 3;
 
 -- 5
-SELECT Question.Content , count(ExamID)
+SELECT Question.Content , count(ExamID) AS Exam_ID
 FROM ExamQuestion
 JOIN Question ON ExamQuestion.QuestionID = Question.QuestionID
-GROUP BY ExamQuestion.QuestionID 
-ORDER BY count(ExamID) DESC;
+GROUP BY ExamQuestion.QuestionID HAVING count(ExamID) = (SELECT max(Exam_ID) FROM (SELECT count(ExamID) AS Exam_ID FROM ExamQuestion GROUP BY QuestionID) AS abc);
+
+ -- (SELECT count(ExamID) AS Exam_ID FROM ExamQuestion GROUP BY QuestionID) AS abc; bảng dẫn xuất đọc mãi mới hiểu đau hết cả đầu
+
 
 -- 6
 SELECT CategoryQuestion.CategoryName, count(CategoryQuestion.CategoryName)
@@ -106,3 +108,4 @@ UNION ALL
 SELECT `Group`.GroupName
 FROM GroupAccount
 JOIN `Group` ON GroupAccount.GroupID = `Group`.GroupID AND AccountID < 7;
+

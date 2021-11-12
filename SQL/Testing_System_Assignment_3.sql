@@ -14,10 +14,12 @@ FROM `Account`
 WHERE length(FullName) = (SELECT MAX(length(FullName)) FROM `Account`);
 
 -- 5
-SELECT * 
+SELECT * , length(FullName)
 FROM `Account`
-WHERE DepartmentID = 3 
-ORDER BY length(FullName) DESC LIMIT 1; 
+WHERE length(FullName) = (SELECT max(length(FullName)) FROM `Account` WHERE departmentID = 3) AND departmentID = 3;
+
+
+
  
  -- 6
 SELECT GroupName 
