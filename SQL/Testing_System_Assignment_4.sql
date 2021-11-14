@@ -29,7 +29,6 @@ GROUP BY ExamQuestion.QuestionID HAVING count(ExamID) = (SELECT max(Exam_ID) FRO
 
  -- (SELECT count(ExamID) AS Exam_ID FROM ExamQuestion GROUP BY QuestionID) AS abc; bảng dẫn xuất đọc mãi mới hiểu đau hết cả đầu
 
-
 -- 6
 SELECT CategoryQuestion.CategoryName, count(CategoryQuestion.CategoryName)
 FROM Question
@@ -109,3 +108,6 @@ SELECT `Group`.GroupName
 FROM GroupAccount
 JOIN `Group` ON GroupAccount.GroupID = `Group`.GroupID AND AccountID < 7;
 
+SELECT *
+FROM `Account`
+JOIN `Position` ON `Account`.PositionID = `Position`.PositionID

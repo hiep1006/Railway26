@@ -52,7 +52,7 @@ CREATE TABLE CategoryQuestion(
 
 CREATE TABLE Question(
 	QuestionID 			TINYINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    Content 			VARCHAR(50),
+    Content 			VARCHAR(250),
     CategoryID 			TINYINT UNSIGNED,
     FOREIGN KEY (CategoryID) REFERENCES CategoryQuestion(CategoryID),
     TypeQuestionID 				TINYINT UNSIGNED,
@@ -64,7 +64,7 @@ CREATE TABLE Question(
 
 CREATE TABLE Answer(
 	AnswerID TINYINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    Content VARCHAR(50),
+    Content VARCHAR(250),
     QuestionID TINYINT UNSIGNED,
     FOREIGN KEY (QuestionID) REFERENCES Question(QuestionID),
     isCorrect BOOL NOT NULL DEFAULT 0

@@ -31,13 +31,13 @@ VALUES	("Chủ tịch"),
         
         
 INSERT INTO `Account`(Email, Username, FullName, DepartmentID, PositionID, CreateDate)
-VALUES	("email1@gmail.com" , "perkercrass", "Aria Mcfarland", 1 , 13, "2021-11-7"),
+VALUES	("email1@gmail.com" , "perkercrass", "Nguyễn Mcfarland", 1 , 13, "2021-11-7"),
 		("email2@gmail.com" , "joecupid", "Maci Wyatttttt", 1 , 13, "2021-11-7"),
 		("email3@gmail.com" , "timberrytrace", "Megan Carneyyyyy", 1 , 13, "2021-11-7"),
 		("email4@gmail.com" , "jinkinsowner1", "Megan Carneyyyyx", 2 , 13, "2021-11-7"),
         ("email6@gmail.com" , "jinkinsowner2", "Harper Barron", 3 , 5, "2021-11-7"),
         ("email7@gmail.com" , "dinkinsowner3", "Darper Barroo", 2, 14, "2021-11-7"),
-        ("email8@gmail.com" , "jinkinsowner4", "Harper Barron",3 , 13, "2021-11-7"),
+        ("email8@gmail.com" , "jinkinsowner4", "Darper Barron",3 , 13, "2021-11-7"),
         ("email9@gmail.com" , "jinkinsowner5", "Harper Barron", 2 , 13, "2021-11-7"),
         ("email10@gmail.com" , "jinkinsowner", "Harper Barron",2 , 14, "2021-11-7"),
 		("email5@gmail.com" , "pipnag", "Isaiah Meyer", 2 , 13, "2021-11-7");
@@ -60,7 +60,7 @@ VALUES	("Tên nhóm 1" , "1", "2010-11-7"),
         
 INSERT INTO GroupAccount(GroupID, AccountID, JoinDate)
 VALUES	("1" , "1", "2021-11-7"),
-		("2" , NULL, "2021-11-7"),
+		("2" , "1", "2021-11-7"),
         ("3" , "3", "2021-11-7"),
         ("4" , "4", "2020-11-7"),
         ("4" , "3", "2019-11-7"),
