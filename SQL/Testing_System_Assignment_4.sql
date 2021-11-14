@@ -57,8 +57,7 @@ GROUP BY `Group`.GroupName;
 SELECT `Position`.PositionName , count(`Account`.AccountID)
 FROM `Account`
 JOIN `Position` ON `Account`.PositionID = `Position`.PositionID
-GROUP BY PositionName
-ORDER BY count(`Account`.AccountID) LIMIT 1;
+GROUP BY PositionName HAVING count(`Account`.AccountID) = (SELECT min(_min) FROM (SELECT count(`Account`.AccountID) AS _min FROM `Account` GROUP BY PositionID) AS abc);
 
 -- 11
 SELECT Department.DepartmentName , `Position`.PositionName, count(`Account`.AccountID)
@@ -107,7 +106,3 @@ UNION ALL
 SELECT `Group`.GroupName
 FROM GroupAccount
 JOIN `Group` ON GroupAccount.GroupID = `Group`.GroupID AND AccountID < 7;
-
-SELECT *
-FROM `Account`
-JOIN `Position` ON `Account`.PositionID = `Position`.PositionID
