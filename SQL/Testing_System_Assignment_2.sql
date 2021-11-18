@@ -89,10 +89,10 @@ VALUES	("Tên danh mục 1"),
         
 INSERT INTO Question(Content, CategoryID, TypeQuestionID, CreatorID, CreateDate)
 VALUES	("Câu hỏi abc", 1, 2, 1, "2021-11-7"),
-		("Làm thế nào để không học mà vẫn giỏi ?", 1, 3, 2, "2021-11-7"),
-        ("Content 3", 1, 4, 1, "2021-11-7"),
+		("Làm thế nào để không học mà vẫn giỏi ?", 1, 3, 2, "2021-9-7"),
+        ("Content 3", 1, 4, 1, "2021-12-7"),
         ("Content 4", 5, 1, 4, "2021-11-7"),
-        ("Content 5", 3, 1, 3, "2021-11-7");
+        ("Content 5", 3, 1, 3, "2021-10-7");
         
 INSERT INTO Answer( Content, QuestionID, isCorrect)
 VALUES	("Content 1", 1, 0),
