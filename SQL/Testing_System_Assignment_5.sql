@@ -19,12 +19,14 @@ GROUP BY GroupAccount.AccountID HAVING count(GroupAccount.GroupID) = (
 
 -- 3
 CREATE VIEW view_1 AS
-SELECT Content , length(Content)
+SELECT Content AS _content , length(Content)
 FROM Question
-WHERE length(Content) > 300;
-
-
-
+WHERE length(Content) > 10;
+ 
+DELETE FROM view_1 WHERE QuestionID = (SELECT ID FROM view_1);
+SELECT _content FROM view_1;
+SELECT * FROM view_1;
+DROP VIEW view_1;
 -- 4
 CREATE VIEW view_2 AS
 SELECT Department.DepartmentName , count(AccountID)
