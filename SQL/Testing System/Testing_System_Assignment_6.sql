@@ -83,14 +83,14 @@ CALL search("2");
  -- departmentID: sẽ được cho vào 1 phòng chờ
 
 -- Sau đó in ra kết quả tạo thành công
-
+SET SQL_SAFE_UPDATES = 0;
 DROP PROCEDURE IF EXISTS NhapNameEmail;
 DELIMITER $$
 CREATE PROCEDURE NhapNameEmail(IN inFullName VARCHAR(25) , IN inEmail VARCHAR(50))
 BEGIN
-	SET SQL_SAFE_UPDATES = 0; 
-	UPDATE `Account` SET username = SUBSTRING_INDEX(inEmail, "@", 1) WHERE FullName = inFullName AND Email = inEmail;
-    ALTER TABLE `Account` MODIFY positionID TINYINT UNSIGNED NOT NULL DEFAULT 14;
+	 
+	`Account` SET username = SUBSTRING_INDEX(inEmail, "@", 1) WHERE FullName = inFullName AND Email = inEmail;
+    -- ALTER TABLE `Account` MODIFY positionID TINYINT UNSIGNED NOT NULL DEFAULT 14;
     UPDATE `Account` SET positionID = DEFAULT(positionID) WHERE FullName = inFullName AND Email = inEmail ;
     UPDATE `Account` SET departmentID = 10 WHERE FullName = inFullName AND Email = inEmail;
 
@@ -99,6 +99,7 @@ DELIMITER ;
 
 CALL NhapNameEmail("Darper Barron" , "email8@gmail.com");
 SELECT * FROM `Account`;
+
 
 -- 8 Viết 1 store cho phép người dùng nhập vào Essay hoặc Multiple-Choice
  -- để thống kê câu hỏi essay hoặc multiple-choice nào có content dài nhất
@@ -109,13 +110,13 @@ SELECT * FROM `Account`;
 	
  END$$
  DELIMITER ;
- 
+ SET SQL_SAFE_UPDATES = 0; 
  -- 9 Viết 1 store cho phép người dùng xóa exam dựa vào ID
  DROP PROCEDURE IF EXISTS Del_Exam;
  DELIMITER $$
  CREATE PROCEDURE Del_Exam(IN ID INT)
  BEGIN
-	SET SQL_SAFE_UPDATES = 0; 
+	
     DELETE FROM Exam WHERE ExamID = ID;
  END$$
  DELIMITER ;
@@ -136,7 +137,7 @@ BEGIN
 		
 		SELECT ExamID INTO ID
 		FROM Exam
-		WHERE year(CreateDate)  = year(now())-3
+		WHERE year(CreateDate)  <= year(now())-3
         LIMIT 1;
 		
 
@@ -151,21 +152,27 @@ DROP PROCEDURE IF EXISTS loopWhile1$$
 
 CREATE PROCEDURE loopWhile1()
 BEGIN
+		DECLARE quantity INT;
+        SET quantity = 0;
 		SET @ID = '';
 		CALL loopWhile(@ID);
-		SELECT @ID;
+		-- SELECT @ID;
 		WHILE (@ID IS NOT NULL) DO
-			
+			SET quantity = quantity + 1;
 			CALL loopWhile(@ID);
 			
             CALL Del_Exam(@ID);
+			
+            
         END WHILE;
-    
-
+        SET quantity = quantity - 1;
+		SELECT quantity;
+		
 END$$
 DELIMITER ;
 
 CALL loopWhile1();
+
 SELECT * FROM Exam;
 -- 11 Viết store cho phép người dùng xóa phòng ban bằng cách người dùng
 -- nhập vào tên phòng ban và các account thuộc phòng ban đó sẽ được

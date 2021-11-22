@@ -1,6 +1,7 @@
 USE Testing_System_Assignment_1;
 INSERT INTO Department(DepartmentName)
-VALUES	("Phòng kế toán"),
+VALUES	
+		("Phòng kế toán"),
 		("Phòng Kiểm toán"),
 		("Phòng kinh doanh"),
 		("Phòng hành chính"),
@@ -8,7 +9,8 @@ VALUES	("Phòng kế toán"),
         ("Phòng Chăm sóc Khách hàng"),
         ("Phòng tài chính"),
         ("Phòng nghiên cứu và phát triển"),
-        ("Phòng quản lý chất lượng");
+        ("Phòng quản lý chất lượng"),
+        ("Phòng chờ");
 
 INSERT INTO `Position`(PositionName)
 VALUES	("Chủ tịch"),
@@ -88,7 +90,7 @@ VALUES	("Tên danh mục 1"),
         ("Tên danh mục 5");
         
 INSERT INTO Question(Content, CategoryID, TypeQuestionID, CreatorID, CreateDate)
-VALUES	("Câu hỏi abc", 1, 2, 1, "2021-11-7"),
+VALUES	("Câu hỏi abc", 1, 2, 1, "2020-11-7"),
 		("Làm thế nào để không học mà vẫn giỏi ?", 1, 3, 2, "2021-9-7"),
         ("Content 3", 1, 4, 1, "2021-12-7"),
         ("Content 4", 5, 1, 4, "2021-11-7"),
@@ -97,13 +99,13 @@ VALUES	("Câu hỏi abc", 1, 2, 1, "2021-11-7"),
 INSERT INTO Answer( Content, QuestionID, isCorrect)
 VALUES	("Content 1", 1, 0),
 		(NULL, 1, 1),
-        ("Content 7", 1, 1),
-        ("Content 8", 1, 1),
-        ("Content 9", 1, 1),
-		("Content 2", 2, 0),
-        ("Content 3", 3, 1),
-        ("Content 4", 4, 1),
-        ("Content 5", 5, 0);
+        ("Content 7", 1, TRUE),
+        ("Content 8", 1, TRUE),
+        ("Content 9", 1, TRUE),
+		("Content 2", 2, FALSE),
+        ("Content 3", 3, TRUE),
+        ("Content 4", 4, TRUE),
+        ("Content 5", 5, FALSE);
 
 INSERT INTO Exam(`Code`, Title, CategoryID, Duration, CreatorID, CreateDate)
 VALUES	("1", "Tiêu đề 1", 1, "45", 2, "2021-11-7"),
@@ -111,9 +113,9 @@ VALUES	("1", "Tiêu đề 1", 1, "45", 2, "2021-11-7"),
         ("3", "Tiêu đề 3", 2, "60", 1, "2021-11-7"),
         ("4", "Tiêu đề 4", 5, "65", 5, "2015-11-7"),
         ("6", "Tiêu đề 5", 5, "65", 5, "2015-11-7"),
-        ("7", "Tiêu đề 6", 5, "65", 5, "2015-11-7"),
+        ("7", "Tiêu đề 6", 5, "65", 5, "2018-11-7"),
         ("8", "Tiêu đề 7", 5, "65", 5, "2015-11-7"),
-        ("9", "Tiêu đề 8", 5, "65", 5, "2015-11-7"),
+        ("9", "Tiêu đề 8", 5, "65", 5, "2012-11-7"),
         ("5", "Tiêu đề 9", 4, "45", 4, "2020-11-7");
 		
 
@@ -122,11 +124,11 @@ VALUES	(1,4),
 		(2,3),
         (3,3),
         (4,3),
-        (6,4),
+        (3,4),
         (7,2),
-        (8,2),
-        (9,2),
-        (5,1);
+        (4,2),
+        (9,2);
+       
         
 
 	

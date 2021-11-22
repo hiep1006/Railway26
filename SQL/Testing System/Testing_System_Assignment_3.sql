@@ -43,7 +43,7 @@ FROM `Group`
 ORDER BY CreateDate DESC LIMIT 5; 
 
 -- 10
-SELECT count(1) 
+SELECT count(AccountID) 
 FROM `Account` 
 WHERE DepartmentID = 2 AND PositionID = 13; 
 
