@@ -8,12 +8,16 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Random;
+import java.util.Scanner;
 
 public class testbai1 {
 	public static void main(String[] args) {
-		//Exercise1();
 		//Exercise2();
-		Exercise3();
+		//Exercise3();
+		//Exercise4();
+		//Exercise4();
+		Exercise5();
 	}
 	
 	static void Exercise1()
@@ -71,7 +75,7 @@ public class testbai1 {
 		acc1.positionId = 1;
 		acc1.department = dep1;
 		acc1.positios = pos1;
-		acc1.createDate = new Date("2021/10/10");
+		acc1.createDate = LocalDate.of(2021, 10, 06);
 		Account acc2 = new Account();
 		acc2.AccountId = 2;
 		acc2.Email = "email2@gmail.com";
@@ -350,10 +354,10 @@ public class testbai1 {
 		System.out.printf("%.4f", f);
 		// 4
 		String hoTen = "Nguyen Van A";
-		System.out.println("\nTen toi la " + hoTen + " va toi dang doc than");
+		System.out.printf("\nTen toi la %s va toi dang doc than" , hoTen);
 		// 5
 		Date date = new Date();
-		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss");
+		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy hh'h':mm'p':ss's'");
 		String strDate = formatter.format(date);
 		System.out.println(strDate);
 		//6
@@ -409,7 +413,7 @@ public class testbai1 {
 		acc1.positionId = 1;
 		acc1.department = dep1;
 		acc1.positios = pos1;
-		acc1.createDate = new Date("2021/10/10");
+		acc1.createDate = LocalDate.of(2021, 10, 06);
 		Account acc2 = new Account();
 		acc2.AccountId = 2;
 		acc2.Email = "email2@gmail.com";
@@ -432,7 +436,7 @@ public class testbai1 {
 		acc3.positionId = 3;
 		acc3.department = dep3;
 		acc3.positios = pos3;
-		System.out.print("Id\t" + "Email\t\t\t" + "Fullname\t" + "Department\n");
+		System.out.printf("|%5s|%15s|%15s|%15s|\n", "ID", "Email","Fullname" , "Department");
 		
 		Account[] account = new Account[3];
 		account[0] = acc1;
@@ -440,7 +444,7 @@ public class testbai1 {
 		account[2] = acc3;
 		for(Account b : account)
 		{
-			System.out.println(b.AccountId+"\t"+b.Email+"\t"+b.fullName+"\t"+b.department.departmentName);
+			System.out.printf("|%5s|%15s|%15s|%15s|\n" , b.AccountId,b.Email,b.fullName , b.department.departmentName);
 			
 		}
 		
@@ -501,7 +505,7 @@ public class testbai1 {
 		acc1.positionId = 1;
 		acc1.department = dep1;
 		acc1.positios = pos1;
-		acc1.createDate = new Date("2021/10/10");
+		acc1.createDate = LocalDate.of(2021, 10, 06);
 		Account acc2 = new Account();
 		acc2.AccountId = 2;
 		acc2.Email = "email2@gmail.com";
@@ -591,6 +595,176 @@ public class testbai1 {
 		dateS = dateFormatter.format(ex1.createDate);
 		System.out.println(dateS);
 	}
-	
+	static void Exercise4()
+	{
+		//1
+		int a;
+		Random r = new Random();
+		a = r.nextInt();
+		System.out.println(a);
+		// 2
+		float b;
+		b = r.nextFloat();
+		System.out.println(b);
+		// 3
+		String[] studentName = new String[3];
+		studentName[0] = "Nguyen Van A";
+		studentName[1] = "Nguyen Van B";
+		studentName[2] = "Nguyen Van C";
+		System.out.println(studentName[0 + r.nextInt(3)]);
+		// 4
+		int date1 = (int)LocalDate.of(1995, 07, 24).toEpochDay();
+		int date2 = (int)LocalDate.of(1995, 12, 20).toEpochDay();
+		int result = date1 + r.nextInt(date2-date1+1);
+		LocalDate date = LocalDate.ofEpochDay(result);
+		System.out.println(date);
+		// 5
+		date1 = (int)LocalDate.now().toEpochDay();
+		result = date1 - r.nextInt(366);
+		date = LocalDate.ofEpochDay(result);
+		System.out.println(date);
+		// 6
+		date1 = (int)LocalDate.now().toEpochDay();
+		result = r.nextInt(date1+1);
+		date = LocalDate.ofEpochDay(result);
+		System.out.println(date);
+		// 7
+		a =100 + r.nextInt(1000);
+		System.out.println(a);
+		
+	}
+	static void Exercise5()
+	{
+		//1
+		Scanner sc = new Scanner(System.in);
+//		System.out.println("Nhap so nguyen 1: ");
+//		int integerInput = sc.nextInt();
+//		System.out.println("Nhap so nguyen 2: ");
+//		int integerInput2 = sc.nextInt();
+//		System.out.println("Nhap so nguyen 3: ");
+//		int integerInput3 = sc.nextInt();
+//		// 2
+//		System.out.println("Nhap so thuc 1: ");
+//		float f1 = sc.nextFloat();
+//		System.out.println("Nhap so thuc 2: ");
+//		float f2 = sc.nextFloat();
+//		
+//		// 3
+//		String c=sc.nextLine();// bat ky tu enter bi thua
+//		System.out.println("Nhap ho: ");
+//		String ho = sc.nextLine();
+//		System.out.println("Nhap ten: ");
+//		String ten = sc.nextLine();
+//		System.out.printf("ho va ten: %S %S\n", ho, ten);
+//		// 4
+//		System.out.println("Nhap ngay sinh nhat cua ban ");
+//		System.out.println("Nhap ngay: ");
+//		int day = sc.nextInt();
+//		System.out.println("Nhap thang: ");
+//		int month = sc.nextInt();
+//		System.out.println("Nhap nam: ");
+//		int year = sc.nextInt();
+//		System.out.printf("Ngay sinh nhat cua ban la: %d/%d/%d", day, month, year);
+//		// 5
+//		Account acc1 = new Account();
+//		acc1.Input();
+//		acc1.Output();
+//		// 6
+//		department dep1 = new department();
+//		dep1.Input();
+//		// 7 
+//		int soChan;
+//		System.out.print("Nhap so chan: ");
+//		soChan = sc.nextInt();
+//		while(soChan % 2 != 0)
+//		{
+//			System.out.print("Khong phai so chan vui long nhap lai: ");
+//			soChan = sc.nextInt();
+//		}
+//		// 8
+//		boolean check = false;
+//		while(!check)
+//		{
+//			System.out.print("moi ban nhap vao chuc nang muon su dung: ");
+//			int menu = sc.nextInt();
+//
+//			switch(menu)
+//			{
+//				case 1:
+//					acc1.Input();
+//					check = !check;
+//					break;
+//				case 2:
+//					dep1.Input();
+//					check = !check;
+//					break;
+//				
+//					
+//			}
+//		}
+		// 9
+		Account ac = new Account();
+		ac.AccountId = 1;
+		ac.Email = "email1";
+		ac.userName = "username1";
+		ac.fullName = "fullname1";
+		ac.departmentId = 1;
+		ac.positionId = 1;
+		
+		Account ac2 = new Account();
+		ac2.AccountId = 2;
+		ac2.Email = "email2";
+		ac2.userName = "username2";
+		ac2.fullName = "fullname2";
+		ac2.departmentId = 2;
+		ac2.positionId = 2;
+		
+		Account ac3 = new Account();
+		ac3.AccountId = 3;
+		ac3.Email = "email3";
+		ac3.userName = "username3";
+		ac3.fullName = "fullname3";
+		ac3.departmentId = 3;
+		ac3.positionId = 3;
+		
+		Account acc[] = new Account[3];	
+		acc[0] = ac;
+		acc[1] = ac2;
+		acc[2] = ac3;
+
+		System.out.print("Nhap vao username cua account: ");
+		String userName = sc.nextLine();
+		
+		for(Account a:acc)
+		{
+			System.out.println(a.userName);
+		}
+		
+		Group gr = new Group();
+		gr.GroupId = 1;
+		gr.groupName = "Group1";
+		gr.creatorId = 1;
+		
+		Group gr2 = new Group();
+		gr2.GroupId = 2;
+		gr2.groupName = "Group2";
+		gr2.creatorId = 2;
+		
+		Group gr3 = new Group();
+		gr3.GroupId = 3;
+		gr3.groupName = "Group3";
+		gr3.creatorId = 3;
+		
+		Group[] gr1 = new Group[3];
+		gr1[0] = gr;
+		gr1[1] = gr2;
+		gr1[2] = gr3;
+		for(Group g:gr1)
+		{
+			System.out.println(g.groupName);
+		}
+		System.out.print("Nhap vao ten group: ");
+		String groupName = sc.nextLine();
+	}
 }
-	
+	 
